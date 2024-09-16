@@ -1,0 +1,19 @@
+n = int(input())
+sock_list = list(map(int, input().split()))
+
+def pairing_socks(n, sock_list):
+    aux_stack = []
+    counter = 0
+    
+    for sock in sock_list:
+        if aux_stack and aux_stack[-1] == sock:
+            aux_stack.pop()
+            counter += 1
+        else:
+            aux_stack.append(sock)
+            counter += 1
+    if len(aux_stack) == 0:
+        return counter
+    else:
+        return "impossible"
+print(pairing_socks(n, sock_list))
