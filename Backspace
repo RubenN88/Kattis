@@ -1,0 +1,13 @@
+streng = input()
+
+def fix_line(streng):
+    fixed_streng = []
+    for c in streng:
+        if c == "<":
+            if fixed_streng:
+                fixed_streng.pop()
+        else:
+            fixed_streng.append(c)
+    return''.join(fixed_streng)
+    
+print(fix_line(streng))
