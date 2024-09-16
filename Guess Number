@@ -1,0 +1,22 @@
+import sys
+
+def output(n):
+    print(n)
+    sys.stdout.flush()
+    
+def guess(low, high):
+    mid = (low + high) // 2
+    output(mid)
+    
+    response = input().strip()
+    
+    if response == "correct":
+        return 0
+    elif response == "lower":
+        return guess(low, mid - 1)
+    else:
+        return guess(mid + 1, high)
+        
+def main():
+    guess(1,1000)
+main()
