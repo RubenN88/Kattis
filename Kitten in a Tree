@@ -1,0 +1,28 @@
+def main():
+    kitten_branch = int(input())
+    parent_map = {}
+
+    while True:
+        line = input()
+        if line.strip() == "-1":
+            break
+    
+        numbers = list(map(int, line.strip().split()))
+        if len(numbers) >= 2:
+            parent = numbers[0]
+            child = numbers[1:]
+
+        for i in child:
+            parent_map[i] = parent
+    
+    path = [kitten_branch]
+    current = kitten_branch
+
+    while current in parent_map:
+        value = parent_map[current]
+        path.append(value)
+        current = value
+    print(" ".join(map(str, path)))
+
+if __name__ == "__main__":
+    main()
