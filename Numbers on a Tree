@@ -1,0 +1,21 @@
+def compute_label(h, s):
+    offset = 0
+    
+    for c in s:
+        if c == "L":
+            offset = offset * 2 + 1
+        elif c == "R":
+            offset = offset * 2
+        else:
+            raise ValueError("No valid path.")
+    l = len(s)
+    start_label = 2 ** (h+1) - 2 ** (l+1) + 1
+    label = start_label + offset
+    return label
+    
+input_list = input().split()
+h = int(input_list[0])
+s = input_list[1] if len(input_list) > 1 else ""
+
+label = compute_label(h, s)
+print(label)
